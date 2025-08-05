@@ -82,7 +82,7 @@
 
   <h1>Saved Server</h1>
 
-  <div class="job-box" id="jobIdBox">Loading Job ID...</div>
+  <div class="job-box" id="jobIdBox">Loading...</div>
 
   <div>
     <div class="section-title">Join Server</div>
@@ -95,19 +95,19 @@
 
   <script>
     const urlParams = new URLSearchParams(window.location.search)
-    const jobId = urlParams.get("job")
+    const jobId = urlParams.get("season")
     const jobIdBox = document.getElementById("jobIdBox")
     const placeId = 4924922222
 
     if (jobId) {
       jobIdBox.textContent = jobId
     } else {
-      jobIdBox.textContent = "No Job ID found in the URL."
+      jobIdBox.textContent = "Server not found"
     }
 
     function joinServer() {
       if (!jobId) {
-        alert("Job ID not found in the URL!")
+        alert("Server not found")
         return
       }
       window.location.href = `roblox://placeId=${placeId}&jobId=${jobId}`
