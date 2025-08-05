@@ -61,15 +61,8 @@
 
     .footer {
       margin-top: 40px;
-      font-size: 1.2rem;
-      color: #fff;
-      padding: 20px 30px;
-      background-color: #1e1e1e;
-      border: 2px solid var(--blue);
-      border-radius: 12px;
-      box-shadow: 0 0 20px var(--blue-glow);
-      max-width: 90vw;
-      word-break: break-word;
+      font-size: 0.85rem;
+      color: #555;
     }
   </style>
 </head>
@@ -81,9 +74,7 @@
     <button class="join-button" onclick="joinServer()">Join Server</button>
   </div>
 
-  <div class="footer" id="footerBox">
-    Loading...
-  </div>
+  <div class="footer" id="footerBox">Saved Servers</div>
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
