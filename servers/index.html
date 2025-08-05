@@ -35,18 +35,6 @@
       margin-bottom: 30px;
     }
 
-    .job-box {
-      background-color: #1e1e1e;
-      border: 2px solid var(--blue);
-      border-radius: 12px;
-      padding: 20px 30px;
-      font-size: 1.2rem;
-      box-shadow: 0 0 20px var(--blue-glow);
-      margin-bottom: 40px;
-      max-width: 90vw;
-      word-break: break-word;
-    }
-
     .section-title {
       font-size: 1.5rem;
       margin-bottom: 15px;
@@ -73,46 +61,49 @@
 
     .footer {
       margin-top: 40px;
-      font-size: 0.85rem;
-      color: #555;
+      font-size: 1.2rem;
+      color: #fff;
+      padding: 20px 30px;
+      background-color: #1e1e1e;
+      border: 2px solid var(--blue);
+      border-radius: 12px;
+      box-shadow: 0 0 20px var(--blue-glow);
+      max-width: 90vw;
+      word-break: break-word;
     }
   </style>
 </head>
 <body>
-
   <h1>Saved Server</h1>
-
-  <div class="job-box" id="jobIdBox">Loading...</div>
 
   <div>
     <div class="section-title">Join Server</div>
     <button class="join-button" onclick="joinServer()">Join Server</button>
   </div>
 
-  <div class="footer">
-    Saved Servers
+  <div class="footer" id="footerBox">
+    Loading...
   </div>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search)
-    const jobId = urlParams.get("season")
-    const jobIdBox = document.getElementById("jobIdBox")
-    const placeId = 4924922222
+    const urlParams = new URLSearchParams(window.location.search);
+    const jobId = urlParams.get("season");
+    const footerBox = document.getElementById("footerBox");
+    const placeId = 4924922222;
 
     if (jobId) {
-      jobIdBox.textContent = jobId
+      footerBox.textContent = jobId;
     } else {
-      jobIdBox.textContent = "Server not found"
+      footerBox.textContent = "Server not found";
     }
 
     function joinServer() {
       if (!jobId) {
-        alert("Server not found")
-        return
+        alert("Server not found");
+        return;
       }
-      window.location.href = `roblox://placeId=${placeId}&jobId=${jobId}`
+      window.location.href = `roblox://placeId=${placeId}&jobId=${jobId}`;
     }
   </script>
-
 </body>
 </html>
