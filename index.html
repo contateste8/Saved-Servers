@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Saved Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --dark-bg: rgb(15, 15, 15);
+      --blue: rgb(49, 86, 255);
+      --blue-glow: rgba(49, 86, 255, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--dark-bg);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 15px var(--blue-glow);
+      margin-bottom: 30px;
+    }
+
+    .job-box {
+      background-color: #1e1e1e;
+      border: 2px solid var(--blue);
+      border-radius: 12px;
+      padding: 20px 30px;
+      font-size: 1.2rem;
+      box-shadow: 0 0 20px var(--blue-glow);
+      margin-bottom: 40px;
+      max-width: 90vw;
+      word-break: break-word;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #aaa;
+    }
+
+    .join-button {
+      background-color: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--blue-glow);
+      transition: all 0.3s ease;
+    }
+
+    .join-button:hover {
+      box-shadow: 0 0 25px var(--blue);
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Saved Server</h1>
+
+  <div class="job-box" id="jobIdBox">Loading Job ID...</div>
+
+  <div>
+    <div class="section-title">Join Server</div>
+    <button class="join-button" onclick="joinServer()">Join Server</button>
+  </div>
+
+  <div class="footer">
+    Brookhaven Roblox Server Joiner
+  </div>
+
+  <script>
+    const jobId = window.location.pathname.substring(1)
+    const jobIdBox = document.getElementById("jobIdBox")
+    const placeId = 4924922222
+
+    if (jobId) {
+      jobIdBox.textContent = jobId
+    } else {
+      jobIdBox.textContent = "No Job ID found in the URL."
+    }
+
+    function joinServer() {
+      if (!jobId) {
+        alert("Job ID not found in the URL!")
+        return
+      }
+      window.location.href = `roblox://placeId=${placeId}&jobId=${jobId}`
+    }
+  </script>
+
+</body>
+</html>
