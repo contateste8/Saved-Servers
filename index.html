@@ -90,11 +90,12 @@
   </div>
 
   <div class="footer">
-    Brookhaven Roblox Server Joiner
+    Saved Servers
   </div>
 
   <script>
-    const jobId = window.location.pathname.substring(1)
+    const urlParams = new URLSearchParams(window.location.search)
+    const jobId = urlParams.get("job")
     const jobIdBox = document.getElementById("jobIdBox")
     const placeId = 4924922222
 
