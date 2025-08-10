@@ -65,15 +65,15 @@
     }
 
     .container {
-  border: 2px solid var(--blue);
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 0 20px var(--blue-glow);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 250px;
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px var(--blue-glow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 250px;
     }
   </style>
 </head>
@@ -91,15 +91,17 @@
     const jobId = urlParams.get("season");
     const footerBox = document.getElementById("footerBox");
     const placeId = 4924922222;
+    
+    const jobIdRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-    if (jobId) {
+    if (jobId && jobIdRegex.test(jobId)) {
       footerBox.textContent = jobId;
     } else {
       footerBox.textContent = "Server not found";
     }
 
     function joinServer() {
-      if (!jobId) {
+      if (!jobId || !jobIdRegex.test(jobId)) {
         alert("Server not found");
         return;
       }
