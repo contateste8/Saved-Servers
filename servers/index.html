@@ -101,7 +101,7 @@ if (jobId && jobIdRegex.test(jobId)) {
     <div class="section-title">Join Server</div>
     <button class="join-button" onclick="joinServer()">Join Server</button>
   `
-  footerBox.textContent = "Saved Servers"
+  footerBox.textContent = jobId
 } else {
   container.innerHTML = `
     <h1>Server not found</h1>
