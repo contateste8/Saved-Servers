@@ -89,22 +89,23 @@
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const jobId = urlParams.get("season");
-    const footerBox = document.getElementById("footerBox");
+    const container = document.querySelector(".container");
     const placeId = 4924922222;
-    
     const jobIdRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
     if (jobId && jobIdRegex.test(jobId)) {
-      footerBox.textContent = jobId;
+      container.innerHTML = `
+        <h1>Saved Server</h1>
+        <div class="section-title">Join Server</div>
+        <button class="join-button" onclick="joinServer()">Join Server</button>
+      `;
     } else {
-      footerBox.textContent = "Server not found";
+      container.innerHTML = `
+        <h1>Server not found</h1>
+      `;
     }
 
     function joinServer() {
-      if (!jobId || !jobIdRegex.test(jobId)) {
-        alert("Server not found");
-        return;
-      }
       window.location.href = `roblox://placeId=${placeId}&jobId=${jobId}`;
     }
   </script>
