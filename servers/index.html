@@ -63,14 +63,21 @@
       font-size: 0.85rem;
       color: #555;
     }
+
+    .container {
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px var(--blue-glow);
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
+  <div class="container">
   <h1>Saved Server</h1>
-
-  <div>
-    <div class="section-title">Join Server</div>
-    <button class="join-button" onclick="joinServer()">Join Server</button>
+  <div class="section-title">Join Server</div>
+  <button class="join-button" onclick="joinServer()">Join Server</button>
   </div>
 
   <div class="footer" id="footerBox">Saved Servers</div>
